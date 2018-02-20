@@ -17,7 +17,7 @@ class ApiWrapperTest(unittest.TestCase):
     def test_add_user(self, mock):
         wrapper = ApiWrapper(API_URL)
 
-        mock.post(API_URL + '/users', text='Unauthorized', status_code=401)
+        mock.post(API_URL + '/users', status_code=401)
         with self.assertRaises(RuntimeError):
             wrapper.add_user('The', 'User')
 
@@ -27,7 +27,7 @@ class ApiWrapperTest(unittest.TestCase):
     def test_get_user(self, mock):
         wrapper = ApiWrapper(API_URL)
 
-        mock.get(API_URL + '/users/1234', text='Unauthorized', status_code=401)
+        mock.get(API_URL + '/users/1234', status_code=401)
         with self.assertRaises(RuntimeError):
             wrapper.get_user('1234')
 
