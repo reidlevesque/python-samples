@@ -21,9 +21,9 @@ class ApiWrapper(object):
 
         return response.json()['id']
 
-    def get_user(self, id: str) -> str:
+    def get_user(self, userid: str) -> str:
         """Retrieves a user from the system and returns its Full Name"""
-        response = requests.get(self._api_url + '/users/' + id)
+        response = requests.get(self._api_url + '/users/' + userid)
         if response.status_code != 200:
             raise RuntimeError
 

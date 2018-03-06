@@ -15,6 +15,7 @@ class ApiWrapperTest(unittest.TestCase):
     """Tests ApiWrapper"""
 
     def test_add_user(self, mock):
+        """Tests add_user"""
         wrapper = ApiWrapper(API_URL)
 
         mock.post(API_URL + '/users', status_code=401)
@@ -25,6 +26,7 @@ class ApiWrapperTest(unittest.TestCase):
         self.assertEqual('1234', wrapper.add_user('The', 'User'))
 
     def test_get_user(self, mock):
+        """Tests get_user"""
         wrapper = ApiWrapper(API_URL)
 
         mock.get(API_URL + '/users/1234', status_code=401)
